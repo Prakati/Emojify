@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emojify</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d); /* Add a gradient background */
+            color: white; /* Set text color to white */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #container {
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: none; /* Remove input border */
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Set button background color */
+            color: white; /* Set button text color */
+            border: none; /* Remove button border */
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Use rgba for a semi-transparent white background */
+            color: black;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+        #emoji {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emojify</h1>
+    <form action="/emojify" method="post">
+        <div id="container">
+            <input type="text" name="prompt" placeholder="Enter your prompt">
+            <input type="submit" value="Generate Emoji">
+        </div>
+    </form>
+    {% if emoji %}
+        <div id="result">
+            <p>Your Prompt: {{ prompt }}</p>
+            <p id="emoji">{{ emoji }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
